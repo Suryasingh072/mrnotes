@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MrNotes – Premium Study Notes</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ── LOADER ── -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-book">
+      <div class="page"></div><div class="page"></div><div class="page"></div>
+    </div>
+    <p class="loader-text">Loading Notes<span class="dots">...</span></p>
+  </div>
+</div>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar navbar-expand-lg sticky-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <div class="brand-icon"><i class="bi bi-journal-bookmark-fill"></i></div>
+      <span class="brand-name">Mr.<span class="accent">Notes</span></span>
+    </a>
+    <div class="d-flex align-items-center gap-2 ms-auto me-2 d-lg-none">
+      <button class="dark-toggle-btn" id="darkToggleMobile" title="Toggle dark mode">
+        <i class="bi bi-moon-stars-fill"></i>
+      </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="toggler-icon"><i class="bi bi-list"></i></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link active" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#notes">Notes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <div class="d-flex align-items-center gap-3 mt-3 mt-lg-0">
+        <button class="dark-toggle-btn d-none d-lg-flex" id="darkToggleDesktop" title="Toggle dark mode">
+          <i class="bi bi-moon-stars-fill"></i>
+        </button>
+        <a href="#notes" class="btn btn-nav-cta">Browse Notes</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="home" class="hero-section">
+  <div class="hero-bg-shapes">
+    <div class="shape s1"></div>
+    <div class="shape s2"></div>
+    <div class="shape s3"></div>
+  </div>
+  <div class="container">
+    <div class="row align-items-center min-vh-hero">
+      <div class="col-lg-6 hero-text" data-animate>
+        <div class="hero-badge"><i class="bi bi-patch-check-fill"></i> Trusted by 10,000+ Students</div>
+        <h1 class="hero-heading">Buy <span class="gradient-text">Premium</span><br/>Study Notes</h1>
+        <p class="hero-sub">Ace your exams with handcrafted, exam-focused notes by toppers. Clear explanations, diagrams, and shortcuts — all in one place.</p>
+        <div class="hero-btns">
+          <a href="#notes" class="btn btn-primary-custom">Explore Notes <i class="bi bi-arrow-right-circle-fill ms-1"></i></a>
+          <a href="#contact" class="btn btn-outline-custom">Contact Us</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><span class="num">500+</span><span class="label">Notes Available</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="num">4.9★</span><span class="label">Avg. Rating</span></div>
+          <div class="stat-divider"></div>
+          <div class="stat"><span class="num">24hr</span><span class="label">Delivery</span></div>
+        </div>
+      </div>
+      <div class="col-lg-6 hero-visual d-none d-lg-flex" data-animate>
+        <div class="floating-cards">
+          <div class="fcard fc1"><i class="bi bi-calculator-fill"></i><span>Mathematics</span></div>
+          <div class="fcard fc2"><i class="bi bi-atom"></i><span>Physics</span></div>
+          <div class="fcard fc3"><i class="bi bi-dna"></i><span>Biology</span></div>
+          <div class="fcard fc4"><i class="bi bi-cpu-fill"></i><span>CS Notes</span></div>
+          <div class="hero-circle"><i class="bi bi-journal-bookmark-fill"></i></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── NOTES SECTION ── -->
+<section id="notes" class="notes-section">
+  <div class="container">
+    <div class="section-header" data-animate>
+      <div class="section-badge">📚 Our Collection</div>
+      <h2 class="section-title">Find Your <span class="gradient-text">Perfect Notes</span></h2>
+      <p class="section-sub">Handpicked, exam-ready notes for every subject and board.</p>
+    </div>
+
+    <!-- Search + Filters -->
+    <div class="controls-bar" data-animate>
+      <div class="search-wrap">
+        <i class="bi bi-search search-icon"></i>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search notes by subject, topic..."/>
+        <button class="search-clear" id="clearSearch" title="Clear"><i class="bi bi-x-lg"></i></button>
+      </div>
+      <div class="filter-chips" id="filterChips">
+        <button class="chip active" data-cat="all">All</button>
+        <button class="chip" data-cat="science">Science</button>
+        <button class="chip" data-cat="maths">Maths</button>
+        <button class="chip" data-cat="commerce">Commerce</button>
+        <button class="chip" data-cat="humanities">Humanities</button>
+        <button class="chip" data-cat="engineering">Engineering</button>
+        <button class="chip" data-cat="medical">Medical</button>
+      </div>
+    </div>
+
+    <!-- No results message -->
+    <div id="noResults" class="no-results d-none">
+      <i class="bi bi-search"></i>
+      <h4>No notes found</h4>
+      <p>Try a different search term or category.</p>
+    </div>
+
+    <!-- Notes Grid -->
+    <div class="row g-4" id="notesGrid">
+      <!-- Cards injected by JS -->
+    </div>
+
+    <!-- Load More -->
+    <div class="text-center mt-5" id="loadMoreWrap">
+      <button class="btn btn-load-more" id="loadMoreBtn">Load More Notes <i class="bi bi-chevron-down ms-1"></i></button>
+    </div>
+  </div>
+</section>
+
+<!-- ── WHY US ── -->
+<section class="why-section">
+  <div class="container">
+    <div class="section-header" data-animate>
+      <div class="section-badge">⚡ Why MrNotes</div>
+      <h2 class="section-title">Everything You <span class="gradient-text">Need to Excel</span></h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-6 col-md-3" data-animate>
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-trophy-fill"></i></div>
+          <h5>Topper Notes</h5>
+          <p>Made by students who scored 90%+</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-animate>
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+          <h5>Instant Delivery</h5>
+          <p>Get notes via WhatsApp instantly</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-animate>
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-shield-fill-check"></i></div>
+          <h5>Verified Quality</h5>
+          <p>Expert-reviewed for accuracy</p>
+        </div>
+      </div>
+      <div class="col-6 col-md-3" data-animate>
+        <div class="why-card">
+          <div class="why-icon"><i class="bi bi-wallet2"></i></div>
+          <h5>Affordable</h5>
+          <p>Best notes at student-friendly prices</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact" class="contact-section">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5" data-animate>
+        <div class="section-badge">📬 Get In Touch</div>
+        <h2 class="section-title mt-2">Have a <span class="gradient-text">Question?</span></h2>
+        <p class="contact-sub">We're here to help! Reach out and we'll respond within 24 hours.</p>
+        <div class="contact-info">
+          <div class="contact-row"><i class="bi bi-whatsapp"></i><span>+91 98765 43210</span></div>
+          <div class="contact-row"><i class="bi bi-envelope-fill"></i><span>notes@notesbazaar.in</span></div>
+          <div class="contact-row"><i class="bi bi-instagram"></i><span>@notesbazaar_in</span></div>
+        </div>
+        <a href="https://wa.me/919431683881?text=Hi! I want to know more about your notes." target="_blank" class="btn btn-whatsapp-main mt-3">
+          <i class="bi bi-whatsapp me-2"></i>Chat on WhatsApp
+        </a>
+      </div>
+      <div class="col-lg-7" data-animate>
+        <div class="contact-form-card">
+          <h5 class="mb-4">Send a Message</h5>
+          <div class="mb-3">
+            <input type="text" class="form-control custom-input" placeholder="Your Name"/>
+          </div>
+          <div class="mb-3">
+            <input type="email" class="form-control custom-input" placeholder="Email Address"/>
+          </div>
+          <div class="mb-3">
+            <input type="text" class="form-control custom-input" placeholder="Subject"/>
+          </div>
+          <div class="mb-3">
+            <textarea class="form-control custom-input" rows="4" placeholder="Your message..."></textarea>
+          </div>
+          <button class="btn btn-primary-custom w-100" onclick="showToast('Message sent! We\'ll reply soon.','success')">
+            Send Message <i class="bi bi-send-fill ms-2"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand"><i class="bi bi-journal-bookmark-fill"></i> Notes<span>Bazaar</span></div>
+        <p class="footer-tagline">Your one-stop destination for premium study notes. Learn smarter, score higher.</p>
+        <div class="footer-socials">
+          <a href="#"><i class="bi bi-instagram"></i></a>
+          <a href="#"><i class="bi bi-twitter-x"></i></a>
+          <a href="#"><i class="bi bi-youtube"></i></a>
+          <a href="#"><i class="bi bi-telegram"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2">
+        <h6 class="footer-heading">Links</h6>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#notes">Notes</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-lg-3">
+        <h6 class="footer-heading">Categories</h6>
+        <ul class="footer-links">
+          <li><a href="#">Science Notes</a></li>
+          <li><a href="#">Maths Notes</a></li>
+          <li><a href="#">Commerce</a></li>
+          <li><a href="#">Engineering</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6 class="footer-heading">Contact</h6>
+        <ul class="footer-links">
+          <li><i class="bi bi-telephone-fill me-2"></i>+91 94316 83881</li>
+          <li><i class="bi bi-envelope-fill me-2"></i>notes@notesbazaar.in</li>
+          <li><i class="bi bi-geo-alt-fill me-2"></i>India</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 NotesBazaar. All rights reserved.</span>
+      <span>Made with ❤️ for Students</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ── TOAST ── -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+  <div id="liveToast" class="toast align-items-center border-0" role="alert">
+    <div class="d-flex">
+      <div class="toast-body" id="toastMsg">Toast message</div>
+      <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+    </div>
+  </div>
+</div>
+
+<!-- Payment Modal -->
+<div class="modal fade" id="payModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content pay-modal-content">
+      <div class="modal-header border-0">
+        <h5 class="modal-title"><i class="bi bi-credit-card-2-front-fill me-2"></i>Complete Payment</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body text-center">
+        <div class="pay-amount-display" id="payAmountDisplay">₹99</div>
+        <p class="pay-note-name" id="payNoteName">Physics – Class 12 Complete</p>
+        <div class="upi-options">
+          <a id="upiLink" href="#" class="upi-btn gpay"><i class="bi bi-phone-fill"></i> Pay via UPI App</a>
+        </div>
+        <div class="pay-divider">or scan QR code</div>
+        <div class="qr-placeholder"><i class="bi bi-qr-code"></i><span>QR Code</span></div>
+        <p class="pay-instruction">After payment, click the WhatsApp button below to receive your notes instantly.</p>
+        <a id="waAfterPay" href="#" target="_blank" class="btn btn-whatsapp-modal w-100 mt-2">
+          <i class="bi bi-whatsapp me-2"></i>Notify via WhatsApp to get Notes
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
