@@ -1,92 +1,128 @@
 /* ═══════════════════════════════════════════
-   NotesBazaar – script.js
+   MrNotes – script.js
 ═══════════════════════════════════════════ */
 
 // ── Notes Data ──────────────────────────────────────────────────────────────
 const NOTES = [
   {
-    id: 1, cat: "science",
-    subject: "Physics", title: "Physics – Class 12 Complete",
-    desc: "Optics, Electromagnetism, Modern Physics with solved PYQs and diagrams.",
-    price: 99, original: 199, rating: 4.9, pages: 120, downloads: 3200,
-    badge: "hot", icon: "⚛️", color: "#6366f1"
+    id: 1,
+    cat: "coding",
+    subject: "Data Structures",
+    title: "DSA Complete Interview Notes",
+    desc: "Arrays, Linked List, Trees, Graphs, DP — coding patterns + time complexity.",
+    price: 149,
+    original: 299,
+    rating: 5.0,
+    pages: 180,
+    downloads: 5600,
+    badge: "hot",
+    icon: "💻",
+    color: "#14b8a6"
   },
   {
-    id: 2, cat: "science",
-    subject: "Chemistry", title: "Organic Chemistry Master Notes",
-    desc: "All named reactions, mechanisms, and shortcuts for JEE & NEET prep.",
-    price: 89, original: 179, rating: 4.8, pages: 96, downloads: 2800,
-    badge: "new", icon: "🧪", color: "#10b981"
+    id: 2,
+    cat: "coding",
+    subject: "Computer Networks",
+    title: "Computer Networks – GATE Notes",
+    desc: "OSI, TCP/IP, Routing, Subnetting — GATE + interview prep.",
+    price: 129,
+    original: 249,
+    rating: 4.7,
+    pages: 110,
+    downloads: 2200,
+    badge: "",
+    icon: "🌐",
+    color: "#f97316"
   },
   {
-    id: 3, cat: "maths",
-    subject: "Mathematics", title: "Calculus & Integration Handbook",
-    desc: "Limits, derivatives, integration with 150+ solved examples and tricks.",
-    price: 79, original: 149, rating: 4.7, pages: 88, downloads: 1900,
-    badge: "", icon: "📐", color: "#f59e0b"
+    id: 3,
+    cat: "coding",
+    subject: "Java",
+    title: "Java Complete Notes",
+    desc: "OOPs, Collections, Multithreading — interview + college prep.",
+    price: 99,
+    original: 199,
+    rating: 4.8,
+    pages: 130,
+    downloads: 3000,
+    badge: "hot",
+    icon: "☕",
+    color: "#f59e0b"
   },
   {
-    id: 4, cat: "medical",
-    subject: "Biology", title: "Biology – NEET Complete Notes",
-    desc: "Plant & Animal Physiology, Genetics, Evolution — fully color-coded.",
-    price: 109, original: 229, rating: 4.9, pages: 200, downloads: 4100,
-    badge: "hot", icon: "🧬", color: "#ec4899"
+    id: 4,
+    cat: "coding",
+    subject: "Python",
+    title: "Python for Beginners to Advanced",
+    desc: "Basics, OOP, File handling, Projects — full roadmap.",
+    price: 89,
+    original: 179,
+    rating: 4.7,
+    pages: 120,
+    downloads: 3500,
+    badge: "new",
+    icon: "🐍",
+    color: "#10b981"
   },
   {
-    id: 5, cat: "commerce",
-    subject: "Accountancy", title: "Class 12 Accounts – Full Notes",
-    desc: "Partnership, Company Accounts, Cash Flow — with CBSE board format.",
-    price: 69, original: 139, rating: 4.6, pages: 78, downloads: 1500,
-    badge: "", icon: "📊", color: "#0ea5e9"
+    id: 5,
+    cat: "coding",
+    subject: "Web Development",
+    title: "Full Stack Web Dev Notes",
+    desc: "HTML, CSS, JS, React, Node — complete dev guide.",
+    price: 119,
+    original: 249,
+    rating: 4.9,
+    pages: 200,
+    downloads: 4200,
+    badge: "hot",
+    icon: "🌍",
+    color: "#6366f1"
   },
   {
-    id: 6, cat: "humanities",
-    subject: "History", title: "Modern India – Class 12 History",
-    desc: "Colonial era to Independence — concise, timeline-based notes with maps.",
-    price: 59, original: 119, rating: 4.5, pages: 64, downloads: 1100,
-    badge: "new", icon: "🏛️", color: "#8b5cf6"
+    id: 6,
+    cat: "coding",
+    subject: "DBMS",
+    title: "DBMS + SQL Notes",
+    desc: "Normalization, Queries, Transactions — interview focused.",
+    price: 79,
+    original: 149,
+    rating: 4.6,
+    pages: 90,
+    downloads: 2100,
+    badge: "",
+    icon: "🗄️",
+    color: "#0ea5e9"
   },
   {
-    id: 7, cat: "engineering",
-    subject: "Data Structures", title: "DSA Complete Interview Notes",
-    desc: "Arrays, Trees, Graphs, DP — with coding patterns and time complexities.",
-    price: 149, original: 299, rating: 5.0, pages: 180, downloads: 5600,
-    badge: "hot", icon: "💻", color: "#14b8a6"
+    id: 7,
+    cat: "coding",
+    subject: "Operating System",
+    title: "OS Complete Notes",
+    desc: "Process, Threads, Scheduling, Memory — interview prep.",
+    price: 99,
+    original: 199,
+    rating: 4.8,
+    pages: 140,
+    downloads: 2600,
+    badge: "",
+    icon: "🖥️",
+    color: "#8b5cf6"
   },
   {
-    id: 8, cat: "engineering",
-    subject: "Networks", title: "Computer Networks – GATE Notes",
-    desc: "OSI model, TCP/IP, routing algorithms — GATE exam focused notes.",
-    price: 129, original: 249, rating: 4.7, pages: 110, downloads: 2200,
-    badge: "", icon: "🌐", color: "#f97316"
-  },
-  {
-    id: 9, cat: "science",
-    subject: "Physics", title: "Mechanics & Thermodynamics",
-    desc: "Laws of motion, work-energy, thermodynamics with JEE-level problems.",
-    price: 89, original: 169, rating: 4.8, pages: 104, downloads: 2400,
-    badge: "", icon: "⚙️", color: "#ef4444"
-  },
-  {
-    id: 10, cat: "maths",
-    subject: "Mathematics", title: "Algebra & Coordinate Geometry",
-    desc: "Quadratics, progressions, circles, parabola — complete Class 11-12.",
-    price: 79, original: 149, rating: 4.6, pages: 90, downloads: 1700,
-    badge: "new", icon: "📈", color: "#a855f7"
-  },
-  {
-    id: 11, cat: "medical",
-    subject: "Biochemistry", title: "Biochemistry Quick Revision",
-    desc: "Metabolism, enzymes, DNA replication — MBBS first year notes.",
-    price: 119, original: 239, rating: 4.9, pages: 144, downloads: 3000,
-    badge: "hot", icon: "🔬", color: "#22c55e"
-  },
-  {
-    id: 12, cat: "commerce",
-    subject: "Economics", title: "Micro & Macro Economics Notes",
-    desc: "Supply-demand, national income, money & banking — board + entrance.",
-    price: 69, original: 129, rating: 4.5, pages: 72, downloads: 1300,
-    badge: "", icon: "💰", color: "#eab308"
+    id: 8,
+    cat: "coding",
+    subject: "System Design",
+    title: "System Design Basics",
+    desc: "Scalability, Load balancing, Architecture — beginner friendly.",
+    price: 149,
+    original: 299,
+    rating: 4.9,
+    pages: 160,
+    downloads: 2800,
+    badge: "new",
+    icon: "🏗️",
+    color: "#ef4444"
   }
 ];
 
@@ -98,8 +134,8 @@ const BATCH        = 3;
 
 // ── UPI Config ───────────────────────────────────────────────────────────────
 const UPI_ID   = "yourupiid@upi";
-const UPI_NAME = "NotesBazaar";
-const WA_NUMBER = "919876543210";
+const UPI_NAME = "MrNotes";
+const WA_NUMBER = "919431683881";
 
 // ── DOM Helpers ──────────────────────────────────────────────────────────────
 const $ = id => document.getElementById(id);
